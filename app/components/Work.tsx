@@ -16,7 +16,7 @@ const csProjects = [
       "Built an AI-powered news aggregation platform that delivers exponential news in constant reading time. A FastAPI backend scrapes and ingests articles, generates LLM summaries and tags, and serves a personalized feed with like, save, and search features. Deployed with Docker Compose and backed by PostgreSQL, with a lightweight HTML/CSS/JS frontend.",
     tags: ["FastAPI", "Python", "PostgreSQL", "Docker", "OpenAI", "Full-Stack"],
     links: [
-      { label: "Live Site", href: "https://neural-news.onrender.com" },
+      { label: "Live Site", href: "https://diplomatic-contentment-production-1daa.up.railway.app" },
       { label: "GitHub", href: "https://github.com/piperfleming/neural-news" },
     ],
     image: "/images/projects/neural-news-hero.png",
