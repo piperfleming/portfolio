@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F9F8F6;
+  color: #111827;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+::selection {
+  background: #CCFBF1;
+  color: #115E59;
+}
+
+@keyframes caterpillar-bob {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-4px); }
+}
