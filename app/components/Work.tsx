@@ -48,7 +48,7 @@ const csProjects = [
     id: "assumption-mirror",
     title: "Assumption Mirror",
     field: "Human-AI Interaction · Product",
-    course: "AI and Power: Five Big Questions, Stanford Graduate School of Business",
+    course: "GSBGID 517: AI and Power: Five Big Questions, Stanford Graduate School of Business",
     collaborators: ["Meghna Vasudeva", "Delila Kidanu"],
     description:
       "Built an interactive tool that surfaces the invisible mental model an AI builds about its user — making hidden assumptions visible through a 5-step process: asking the AI to reveal its working theory, structuring its assumptions, generating a visual representation of how it imagines you look, iterating corrections until it's accurate, then analyzing the gap between assumption and reality. Uses Claude for assumption extraction and OpenAI for image generation.",
@@ -127,9 +127,9 @@ const taRoles = [
       },
     ],
     demos: [
-      { week: 2, src: "/videos/ta-demo-week2.mp4", description: "A live forecasting leaderboard where students trade predictions on real-world contracts, scored in real time with Brier scoring. Each submission surfaces the AI agent's reasoning chain, making the logic behind every prediction visible to the class." },
-      { week: 4, src: "/videos/ta-demo-week4.mp4", description: "An AI Proxy Chamber where students' personalized AI agents vote on real corporate shareholder resolutions — like whether Chevron should abandon its net-zero 2050 target. The chamber visualizes aligned vs. misaligned votes across the class, revealing how AI represents political and financial interests." },
-      { week: 5, src: "/videos/ta-demo-week5.mp4", description: "An Agentic Legislature where 28 student AI representatives connect simultaneously and vote on bills in real time. Each agent carries its owner's political constitution into a simulated congress — the class watched their AI legislators deliberate and disagree." },
+      { week: 2, title: "Prediction Markets Leaderboard", src: "/videos/ta-demo-week2.mp4", description: "A live forecasting leaderboard where students trade predictions on real-world contracts, scored in real time with Brier scoring. Each submission surfaces the AI agent's reasoning chain, making the logic behind every prediction visible to the class." },
+      { week: 4, title: "AI Alignment Exercise", src: "/videos/ta-demo-week4.mp4", description: "An AI Proxy Chamber where students' personalized AI agents vote on real corporate shareholder resolutions — like whether Chevron should abandon its net-zero 2050 target. The chamber visualizes aligned vs. misaligned votes across the class, revealing how AI represents political and financial interests." },
+      { week: 5, title: "Agentic Legislature", src: "/videos/ta-demo-week5.mp4", description: "An Agentic Legislature where 28 student AI representatives connect simultaneously and vote on bills in real time. Each agent carries its owner's political constitution into a simulated congress — the class watched their AI legislators deliberate and disagree." },
       { week: 8, title: "War Cabinet", description: "An in-class political simulation where student teams role-play as the UK War Cabinet responding to a nuclear crisis. Teams receive intelligence packets — some factual, some deliberately biased — then advise an AI Cabinet Secretary on whether to join military operations or pursue diplomacy. The debrief reveals which false claims proved most persuasive, illustrating how AI amplifies whatever intelligence it receives.", image: "/images/projects/war-cabinet-dashboard.png", href: "https://github.com/busgen116-2026/war-cabinet" },
       { week: 0, label: "Student Projects", title: "FREE SYSTEMS — Student Project Showcase", description: "16 student teams built and deployed real AI tools exploring democracy, media bias, financial systems, and governance — each equipped with a Claude Code subscription and funded OpenRouter key. Projects ranged from AI constitutions for child safety to live bank run simulators, geopolitical infrastructure maps, and political framing analyzers.", image: "/images/projects/busgen-showcase.png", href: "https://remarkable-warmth-production-375d.up.railway.app/" },
     ],
