@@ -263,41 +263,41 @@ function OracleTab() {
         </p>
       </div>
       {/* Hero row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {oracleHero.map((item) => (
-          <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-video rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block">
-            <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-14 h-14 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
-                <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform">
-              <p className="text-white text-xs font-medium">{item.caption}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-      {/* Supporting grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {oracleGrid.map((item) => (
-          <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block">
-            <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
-            {"noPlay" in item ? null : (
+          <div key={item.id}>
+            <a href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-video rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block mb-3">
+              <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
-                  <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-14 h-14 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                  <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
-            )}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-              <p className="text-white text-xs font-medium leading-snug">{item.caption}</p>
-            </div>
-          </a>
+            </a>
+            <p className="text-sm text-stone-600 leading-snug">{item.caption}</p>
+          </div>
+        ))}
+      </div>
+      {/* Supporting grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {oracleGrid.map((item) => (
+          <div key={item.id}>
+            <a href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block mb-2">
+              <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
+              {"noPlay" in item ? null : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                    <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </a>
+            <p className="text-xs text-stone-500 leading-snug">{item.caption}</p>
+          </div>
         ))}
       </div>
     </div>
