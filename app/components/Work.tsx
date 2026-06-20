@@ -26,6 +26,7 @@ const csProjects = [
     title: "How Large Language Models Encode Demographic Identity",
     field: "Computer Science · Machine Learning",
     course: "CS 281: Ethics of Artificial Intelligence, Stanford University",
+    collaborators: ["Carolyn Smith"],
     description:
       "Investigated whether LLMs systematically shift Big Five personality representations when conditioned on demographic attributes. Used the PANDORA Reddit dataset with 500 users across 4 prompt conditions (baseline, demographic hint, explicit, and combined). Found evidence of consistent demographic encoding that raises questions about fairness and identity in AI systems.",
     tags: ["Python", "LLMs", "NLP", "Experimental Design", "Statistics"],
@@ -127,9 +128,9 @@ const taRoles = [
     ],
     siteUrl: "https://remarkable-warmth-production-375d.up.railway.app/",
     demos: [
-      { week: 2, src: "/videos/ta-demo-week2.mp4", description: "" },
-      { week: 4, src: "/videos/ta-demo-week4.mp4", description: "" },
-      { week: 5, src: "/videos/ta-demo-week5.mp4", description: "" },
+      { week: 2, src: "/videos/ta-demo-week2.mp4", description: "A live forecasting leaderboard where students trade predictions on real-world contracts, scored in real time with Brier scoring. Each submission surfaces the AI agent's reasoning chain, making the logic behind every prediction visible to the class." },
+      { week: 4, src: "/videos/ta-demo-week4.mp4", description: "An AI Proxy Chamber where students' personalized AI agents vote on real corporate shareholder resolutions — like whether Chevron should abandon its net-zero 2050 target. The chamber visualizes aligned vs. misaligned votes across the class, revealing how AI represents political and financial interests." },
+      { week: 5, src: "/videos/ta-demo-week5.mp4", description: "An Agentic Legislature where 28 student AI representatives connect simultaneously and vote on bills in real time. Each agent carries its owner's political constitution into a simulated congress — the class watched their AI legislators deliberate and disagree." },
       { week: 8, title: "War Cabinet", description: "An in-class political simulation where student teams role-play as the UK War Cabinet responding to a nuclear crisis. Teams receive intelligence packets — some factual, some deliberately biased — then advise an AI Cabinet Secretary on whether to join military operations or pursue diplomacy. The debrief reveals which false claims proved most persuasive, illustrating how AI amplifies whatever intelligence it receives.", image: "/images/projects/war-cabinet-dashboard.png", href: "https://github.com/busgen116-2026/war-cabinet" },
     ],
   },
@@ -189,15 +190,15 @@ function CSTab({ jumpToId }: { jumpToId: string | null }) {
                   <p className="text-stone-500 leading-relaxed mb-6 max-w-3xl">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((t) => (
-                        <span key={t} className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tags.map((t) => (
+                      <span key={t} className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  {project.links.length > 0 && (
+                  <div className="flex gap-4">
                       {project.links.map((l) => (
                         <a
                           key={l.label}
@@ -211,6 +212,7 @@ function CSTab({ jumpToId }: { jumpToId: string | null }) {
                       ))}
                     </div>
                   </div>
+                  )}
                 </div>
                 {/* Project image */}
                 {"video" in project && project.video ? (
@@ -256,12 +258,12 @@ function OracleTab() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
       </div>
-      <div className="mb-10 max-w-2xl">
+      <div className="mb-10">
         <h3 className="font-serif text-2xl font-bold text-stone-900 mb-3">
           Oracle
         </h3>
         <p className="text-stone-500 leading-relaxed">
-          As a product management intern on the Java Platform Group, I worked at the intersection of AI, software engineering, and product strategy. I built internal tools leveraging Oracle&apos;s GenAI services related to training data, data collection, and model evaluations. Beyond my core role, I represented Stanford on Oracle&apos;s Student Advisory Board, spoke on a livestream celebrating Java&apos;s 30th anniversary, and created educational content for aspiring computer scientists.
+          Oracle is a global technology company providing cloud infrastructure, databases, and enterprise software used by organizations around the world. As a product management intern on the Java Platform Group, I worked at the intersection of AI, software engineering, and product strategy — building internal tools leveraging Oracle&apos;s GenAI services for training data, data collection, and model evaluations. Beyond my core role, I represented Stanford on Oracle&apos;s Student Advisory Board, spoke on a livestream celebrating Java&apos;s 30th anniversary, and created educational content for aspiring computer scientists.
         </p>
       </div>
       {/* Hero row */}
