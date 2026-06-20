@@ -25,11 +25,12 @@ const csProjects = [
     id: "llm-bias",
     title: "How Large Language Models Encode Demographic Identity",
     field: "Computer Science · Machine Learning",
-    course: "CS 281- Advanced Machine Learning, Stanford",
+    course: "CS 281: Ethics of Artificial Intelligence, Stanford University",
     description:
       "Investigated whether LLMs systematically shift Big Five personality representations when conditioned on demographic attributes. Used the PANDORA Reddit dataset with 500 users across 4 prompt conditions (baseline, demographic hint, explicit, and combined). Found evidence of consistent demographic encoding that raises questions about fairness and identity in AI systems.",
     tags: ["Python", "LLMs", "NLP", "Experimental Design", "Statistics"],
     links: [{ label: "Paper", href: "/papers/cs281-llm-bias.pdf" }],
+    image: "/images/projects/cs281-paper.png",
   },
   {
     id: "quantum-chem",
@@ -102,8 +103,8 @@ const oracleHero = [
 
 const oracleGrid = [
   { id: "hs", caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-2.jpg" },
-  { id: "java-x", caption: "From exciting new features to community events—there's plenty to love about Java. See what community members had to say about why they love Java. #30YearsOfJava", href: "https://x.com/java/status/1958174777127977452", image: "/images/projects/oracle-java-x.jpg", noPlay: true },
   { id: "imposter", caption: "Oracle interns get real about imposter syndrome, keeping up with fast-moving tech, and learning that growth matters more than perfection.", href: "https://www.youtube.com/watch?v=_N4j0Tn_unY", image: "https://img.youtube.com/vi/_N4j0Tn_unY/maxresdefault.jpg" },
+  { id: "java-x", caption: "From exciting new features to community events—there's plenty to love about Java. See what community members had to say about why they love Java. #30YearsOfJava", href: "https://x.com/java/status/1958174777127977452", image: "/images/projects/oracle-java-x.jpg" },
   { id: "behind", caption: "Go behind the scenes with Oracle interns — what inspired them to pursue CS, what they worked on, and what surprised them most. Featuring Piper Fleming, Otmane Bachri, Nada Himdi, Andrew Schoenen, Kevin Villa, and Harinishree Sathu.", href: "https://www.youtube.com/watch?v=JlvyUSAWfdc", image: "https://img.youtube.com/vi/JlvyUSAWfdc/maxresdefault.jpg" },
 ];
 
@@ -126,9 +127,10 @@ const taRoles = [
     ],
     siteUrl: "https://remarkable-warmth-production-375d.up.railway.app/",
     demos: [
-      { week: 2, src: "/videos/ta-demo-week2.mp4" },
-      { week: 4, src: "/videos/ta-demo-week4.mp4" },
-      { week: 5, src: "/videos/ta-demo-week5.mp4" },
+      { week: 2, src: "/videos/ta-demo-week2.mp4", description: "" },
+      { week: 4, src: "/videos/ta-demo-week4.mp4", description: "" },
+      { week: 5, src: "/videos/ta-demo-week5.mp4", description: "" },
+      { week: 8, title: "War Cabinet", description: "An in-class political simulation where student teams role-play as the UK War Cabinet responding to a nuclear crisis. Teams receive intelligence packets — some factual, some deliberately biased — then advise an AI Cabinet Secretary on whether to join military operations or pursue diplomacy. The debrief reveals which false claims proved most persuasive, illustrating how AI amplifies whatever intelligence it receives.", image: "/images/projects/war-cabinet-dashboard.png", href: "https://github.com/busgen116-2026/war-cabinet" },
     ],
   },
   {
@@ -357,12 +359,29 @@ function TeachingTab() {
             )}
             {"demos" in role && Array.isArray(role.demos) && role.demos.length > 0 && (
               <div className="mt-6">
-                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-3">Weekly demos I built</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  {(role.demos as { week: number; src: string }[]).map((d) => (
-                    <div key={d.week} className="rounded-xl overflow-hidden border border-stone-200">
-                      <video src={d.src} className="w-full" controls muted playsInline preload="metadata" />
-                      <p className="text-xs text-stone-400 font-medium text-center py-2">Week {d.week}</p>
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">Weekly demos I built</p>
+                <div className="space-y-5">
+                  {(role.demos as { week: number; src?: string; image?: string; href?: string; title?: string; description?: string }[]).map((d) => (
+                    <div key={d.week} className="flex flex-col md:flex-row gap-5 items-start">
+                      <div className="md:w-72 lg:w-80 flex-shrink-0 rounded-xl overflow-hidden border border-stone-200">
+                        {d.src ? (
+                          <video src={d.src} className="w-full" controls muted playsInline preload="metadata" />
+                        ) : d.image && d.href ? (
+                          <a href={d.href} target="_blank" rel="noopener noreferrer" className="block group relative">
+                            <img src={d.image} alt={d.title || `Week ${d.week}`} className="w-full object-cover" />
+                          </a>
+                        ) : null}
+                      </div>
+                      <div className="flex-1 min-w-0 pt-1">
+                        <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-1">Week {d.week}</p>
+                        {d.title && <p className="font-semibold text-stone-900 mb-2">{d.title}</p>}
+                        {d.description && <p className="text-stone-500 text-sm leading-relaxed">{d.description}</p>}
+                        {d.href && (
+                          <a href={d.href} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors underline underline-offset-2">
+                            GitHub ↗
+                          </a>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
