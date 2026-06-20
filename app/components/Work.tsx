@@ -26,7 +26,7 @@ const csProjects = [
     title: "How Large Language Models Encode Demographic Identity",
     field: "Computer Science · Machine Learning",
     course: "CS 281: Ethics of Artificial Intelligence, Stanford University",
-    collaborators: ["Carolyn Smith"],
+    collaborators: ["Carolyn Hellerqvist Smith"],
     description:
       "Investigated whether LLMs systematically shift Big Five personality representations when conditioned on demographic attributes. Used the PANDORA Reddit dataset with 500 users across 4 prompt conditions (baseline, demographic hint, explicit, and combined). Found evidence of consistent demographic encoding that raises questions about fairness and identity in AI systems.",
     tags: ["Python", "LLMs", "NLP", "Experimental Design", "Statistics"],
@@ -48,7 +48,7 @@ const csProjects = [
     id: "assumption-mirror",
     title: "Assumption Mirror",
     field: "Human-AI Interaction · Product",
-    course: "AI & Business, Stanford University",
+    course: "AI and Power: Five Big Questions, Stanford Graduate School of Business",
     collaborators: ["Meghna Vasudeva", "Delila Kidanu"],
     description:
       "Built an interactive tool that surfaces the invisible mental model an AI builds about its user — making hidden assumptions visible through a 5-step process: asking the AI to reveal its working theory, structuring its assumptions, generating a visual representation of how it imagines you look, iterating corrections until it's accurate, then analyzing the gap between assumption and reality. Uses Claude for assumption extraction and OpenAI for image generation.",
@@ -126,12 +126,12 @@ const taRoles = [
         description: "Stanford GSB students trained personalized AI agents to represent their political preferences and tested whether those agents could deliberate together in a simulated legislature — with surprising results.",
       },
     ],
-    siteUrl: "https://remarkable-warmth-production-375d.up.railway.app/",
     demos: [
       { week: 2, src: "/videos/ta-demo-week2.mp4", description: "A live forecasting leaderboard where students trade predictions on real-world contracts, scored in real time with Brier scoring. Each submission surfaces the AI agent's reasoning chain, making the logic behind every prediction visible to the class." },
       { week: 4, src: "/videos/ta-demo-week4.mp4", description: "An AI Proxy Chamber where students' personalized AI agents vote on real corporate shareholder resolutions — like whether Chevron should abandon its net-zero 2050 target. The chamber visualizes aligned vs. misaligned votes across the class, revealing how AI represents political and financial interests." },
       { week: 5, src: "/videos/ta-demo-week5.mp4", description: "An Agentic Legislature where 28 student AI representatives connect simultaneously and vote on bills in real time. Each agent carries its owner's political constitution into a simulated congress — the class watched their AI legislators deliberate and disagree." },
       { week: 8, title: "War Cabinet", description: "An in-class political simulation where student teams role-play as the UK War Cabinet responding to a nuclear crisis. Teams receive intelligence packets — some factual, some deliberately biased — then advise an AI Cabinet Secretary on whether to join military operations or pursue diplomacy. The debrief reveals which false claims proved most persuasive, illustrating how AI amplifies whatever intelligence it receives.", image: "/images/projects/war-cabinet-dashboard.png", href: "https://github.com/busgen116-2026/war-cabinet" },
+      { week: 0, label: "Student Projects", title: "FREE SYSTEMS — Student Project Showcase", description: "16 student teams built and deployed real AI tools exploring democracy, media bias, financial systems, and governance — each equipped with a Claude Code subscription and funded OpenRouter key. Projects ranged from AI constitutions for child safety to live bank run simulators, geopolitical infrastructure maps, and political framing analyzers.", image: "/images/projects/busgen-showcase.png", href: "https://remarkable-warmth-production-375d.up.railway.app/" },
     ],
   },
   {
@@ -346,40 +346,28 @@ function TeachingTab() {
                 ))}
               </div>
             </div>
-            {"siteUrl" in role && role.siteUrl && (
-              <div className="mt-4 mb-2">
-                <a
-                  href={role.siteUrl as string}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors underline underline-offset-2"
-                >
-                  View student project showcase ↗
-                </a>
-              </div>
-            )}
             {"demos" in role && Array.isArray(role.demos) && role.demos.length > 0 && (
               <div className="mt-6">
-                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">Weekly demos I built</p>
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">Things I built</p>
                 <div className="space-y-5">
-                  {(role.demos as { week: number; src?: string; image?: string; href?: string; title?: string; description?: string }[]).map((d) => (
+                  {(role.demos as { week: number; label?: string; src?: string; image?: string; href?: string; title?: string; description?: string }[]).map((d) => (
                     <div key={d.week} className="flex flex-col md:flex-row gap-5 items-start">
                       <div className="md:w-72 lg:w-80 flex-shrink-0 rounded-xl overflow-hidden border border-stone-200">
                         {d.src ? (
                           <video src={d.src} className="w-full" controls muted playsInline preload="metadata" />
                         ) : d.image && d.href ? (
-                          <a href={d.href} target="_blank" rel="noopener noreferrer" className="block group relative">
+                          <a href={d.href} target="_blank" rel="noopener noreferrer" className="block">
                             <img src={d.image} alt={d.title || `Week ${d.week}`} className="w-full object-cover" />
                           </a>
                         ) : null}
                       </div>
                       <div className="flex-1 min-w-0 pt-1">
-                        <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-1">Week {d.week}</p>
+                        <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-1">{d.label ?? `Week ${d.week}`}</p>
                         {d.title && <p className="font-semibold text-stone-900 mb-2">{d.title}</p>}
                         {d.description && <p className="text-stone-500 text-sm leading-relaxed">{d.description}</p>}
                         {d.href && (
                           <a href={d.href} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors underline underline-offset-2">
-                            GitHub ↗
+                            {"src" in d && d.src ? null : d.href.includes("github") ? "GitHub ↗" : "View site ↗"}
                           </a>
                         )}
                       </div>
