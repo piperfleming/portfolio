@@ -211,7 +211,6 @@ function CSTab({ jumpToId }: { jumpToId: string | null }) {
                         </a>
                       ))}
                     </div>
-                  </div>
                   )}
                 </div>
                 {/* Project image */}
