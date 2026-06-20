@@ -29,7 +29,7 @@ const csProjects = [
     description:
       "Investigated whether LLMs systematically shift Big Five personality representations when conditioned on demographic attributes. Used the PANDORA Reddit dataset with 500 users across 4 prompt conditions (baseline, demographic hint, explicit, and combined). Found evidence of consistent demographic encoding that raises questions about fairness and identity in AI systems.",
     tags: ["Python", "LLMs", "NLP", "Experimental Design", "Statistics"],
-    links: [{ label: "Paper", href: "/papers/llm-bias.pdf" }],
+    links: [{ label: "Paper", href: "/papers/cs281-llm-bias.pdf" }],
   },
   {
     id: "quantum-chem",
@@ -96,9 +96,9 @@ const csProjects = [
 ];
 
 const oracleMedia = [
-  { id: 1, caption: "Add caption here" },
-  { id: 2, caption: "Add caption here" },
-  { id: 3, caption: "Add caption here" },
+  { id: 1, caption: "Java Turns 30 — 6-hour live stream celebrating Java's evolution. I joined the 'Voices of the New Generation' segment alongside James Gosling, Brian Goetz, Mark Reinhold, and more.", href: "https://www.youtube.com/watch?v=LHHPbI7sYv8", image: "/images/projects/oracle-panel-1.jpg" },
+  { id: 2, caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-2.jpg" },
+  { id: 3, caption: "Moderating the student panel at the JavaOne Community Keynote — nearly 1,000 attendees.", href: "https://www.youtube.com/watch?v=skc-nIFS-hs", image: "/images/projects/oracle-panel-3.jpg" },
   { id: 4, caption: "Add caption here" },
   { id: 5, caption: "Add caption here" },
   { id: 6, caption: "Add caption here" },
@@ -121,6 +121,7 @@ const taRoles = [
         description: "Stanford GSB students trained personalized AI agents to represent their political preferences and tested whether those agents could deliberate together in a simulated legislature — with surprising results.",
       },
     ],
+    siteUrl: "https://remarkable-warmth-production-375d.up.railway.app/",
     demos: [
       { week: 2, src: "/videos/ta-demo-week2.mp4" },
       { week: 4, src: "/videos/ta-demo-week4.mp4" },
@@ -242,6 +243,14 @@ function CSTab({ jumpToId }: { jumpToId: string | null }) {
 function OracleTab() {
   return (
     <div>
+      <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-10 border border-stone-200">
+        <img
+          src="/images/projects/oracle-conference.jpg"
+          alt="Oracle CloudWorld conference"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+      </div>
       <div className="mb-10 max-w-2xl">
         <h3 className="font-serif text-2xl font-bold text-stone-900 mb-3">
           Oracle
@@ -252,21 +261,44 @@ function OracleTab() {
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {oracleMedia.map((item) => (
-          <div
-            key={item.id}
-            className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200"
-          >
-            <div className="w-full h-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
-              <svg className="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+        {oracleMedia.map((item) => {
+          const inner = (
+            <div className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors">
+              {"image" in item && item.image ? (
+                <>
+                  <img
+                    src={item.image as string}
+                    alt={item.caption}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              )}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
+                <p className="text-white text-xs font-medium">{item.caption}</p>
+              </div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-              <p className="text-white text-xs font-medium">{item.caption}</p>
-            </div>
-          </div>
-        ))}
+          );
+          return "href" in item && item.href ? (
+            <a key={item.id} href={item.href as string} target="_blank" rel="noopener noreferrer">
+              {inner}
+            </a>
+          ) : (
+            <div key={item.id}>{inner}</div>
+          );
+        })}
       </div>
     </div>
   );
@@ -311,9 +343,21 @@ function TeachingTab() {
                 ))}
               </div>
             </div>
+            {"siteUrl" in role && role.siteUrl && (
+              <div className="mt-4 mb-2">
+                <a
+                  href={role.siteUrl as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors underline underline-offset-2"
+                >
+                  View student project showcase ↗
+                </a>
+              </div>
+            )}
             {"demos" in role && Array.isArray(role.demos) && role.demos.length > 0 && (
-              <div>
-                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-3">Student demos</p>
+              <div className="mt-6">
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-3">Weekly demos I built</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {(role.demos as { week: number; src: string }[]).map((d) => (
                     <div key={d.week} className="rounded-xl overflow-hidden border border-stone-200">

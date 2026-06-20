@@ -51,6 +51,22 @@ const experiences = [
       href: "https://insight.jci.org/articles/view/188146",
       image: "/images/projects/jci-phage-figure.png",
     },
+    press: [
+      {
+        outlet: "Stanford Woods Institute",
+        title: "Safer Sunscreen: Stanford researchers explore novel approach to sustainable sun protection",
+        href: "https://woods.stanford.edu/news/safer-sunscreen-stanford-researchers-explore-novel-approach-sustainable-sun-protection",
+        image: "/images/projects/press-woods-sunscreen.jpg",
+        description: "An immunologist's lucky accident — bacteriophages surviving UV exposure — sparked a collaboration with a marine ecologist to engineer a biodegradable sunscreen. Piper's sand dollar embryo trials at Hopkins showed the phage-based formula caused no abnormalities, unlike commercial sunscreen.",
+      },
+      {
+        outlet: "Stanford Report",
+        title: "A showcase of undergraduate research",
+        href: "https://news.stanford.edu/stories/2023/10/showcases-undergraduate-research",
+        image: "/images/projects/press-surps.jpg",
+        description: "Piper presented her team's findings at Stanford's annual Symposium of Undergraduate Research and Public Service — phage-based sunscreen left sand dollar embryos unharmed while chemical sunscreen caused significant developmental abnormalities.",
+      },
+    ],
   },
   {
     company: "Lawrence Berkeley National Laboratory",
@@ -73,6 +89,7 @@ const experiences = [
 ];
 
 type Paper = { field: string; title: string; description: string; href: string; image: string };
+type PressItem = { outlet: string; title: string; href: string; image: string; description: string };
 
 export default function Experience() {
   return (
@@ -162,6 +179,31 @@ export default function Experience() {
                       </div>
                     );
                   })()}
+                  {"press" in exp && Array.isArray(exp.press) && (exp.press as PressItem[]).length > 0 && (
+                    <div className="mt-6 pt-5 border-t border-stone-100">
+                      <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">Press</p>
+                      <div className="space-y-6">
+                        {(exp.press as PressItem[]).map((p) => (
+                          <a
+                            key={p.href}
+                            href={p.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-col md:flex-row gap-6 group"
+                          >
+                            <div className="flex-1 min-w-0">
+                              <span className="text-xs font-semibold text-teal-600 tracking-wide uppercase">{p.outlet}</span>
+                              <h5 className="font-serif text-lg font-bold text-stone-900 leading-snug mb-2 group-hover:text-teal-700 transition-colors">{p.title}</h5>
+                              <p className="text-stone-500 text-sm leading-relaxed">{p.description}</p>
+                            </div>
+                            <div className="md:w-56 lg:w-64 flex-shrink-0">
+                              <img src={p.image} alt={p.title} className="w-full rounded-xl border border-stone-200 shadow-sm object-cover" />
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
