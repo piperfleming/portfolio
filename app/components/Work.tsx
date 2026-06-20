@@ -95,13 +95,16 @@ const csProjects = [
   },
 ];
 
-const oracleMedia = [
-  { id: 1, caption: "Java Turns 30 — 6-hour live stream celebrating Java's evolution. I joined the 'Voices of the New Generation' segment alongside James Gosling, Brian Goetz, Mark Reinhold, and more.", href: "https://www.youtube.com/watch?v=LHHPbI7sYv8", image: "/images/projects/oracle-panel-1.jpg" },
-  { id: 2, caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-2.jpg" },
-  { id: 3, caption: "Moderating the student panel at the JavaOne Community Keynote — nearly 1,000 attendees.", href: "https://www.youtube.com/watch?v=skc-nIFS-hs", image: "/images/projects/oracle-panel-3.jpg" },
-  { id: 4, caption: "Add caption here" },
-  { id: 5, caption: "Add caption here" },
-  { id: 6, caption: "Add caption here" },
+const oracleHero = [
+  { id: "keynote", caption: "Moderating the student panel at the JavaOne Community Keynote — nearly 1,000 attendees.", href: "https://www.youtube.com/watch?v=skc-nIFS-hs", image: "/images/projects/oracle-panel-3.jpg" },
+  { id: "java30", caption: "Java Turns 30 — 6-hour live stream celebrating Java's evolution. I joined the 'Voices of the New Generation' segment alongside James Gosling, Brian Goetz, Mark Reinhold, and more.", href: "https://www.youtube.com/watch?v=LHHPbI7sYv8", image: "/images/projects/oracle-panel-1.jpg" },
+];
+
+const oracleGrid = [
+  { id: "hs", caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-2.jpg" },
+  { id: "java-x", caption: "From exciting new features to community events—there's plenty to love about Java. See what community members had to say about why they love Java. #30YearsOfJava", href: "https://x.com/java/status/1958174777127977452", image: "/images/projects/oracle-java-x.jpg", noPlay: true },
+  { id: "imposter", caption: "Oracle interns get real about imposter syndrome, keeping up with fast-moving tech, and learning that growth matters more than perfection.", href: "https://www.youtube.com/watch?v=_N4j0Tn_unY", image: "https://img.youtube.com/vi/_N4j0Tn_unY/maxresdefault.jpg" },
+  { id: "behind", caption: "Go behind the scenes with Oracle interns — what inspired them to pursue CS, what they worked on, and what surprised them most. Featuring Piper Fleming, Otmane Bachri, Nada Himdi, Andrew Schoenen, Kevin Villa, and Harinishree Sathu.", href: "https://www.youtube.com/watch?v=JlvyUSAWfdc", image: "https://img.youtube.com/vi/JlvyUSAWfdc/maxresdefault.jpg" },
 ];
 
 const taRoles = [
@@ -256,49 +259,46 @@ function OracleTab() {
           Oracle
         </h3>
         <p className="text-stone-500 leading-relaxed">
-          A brief description of your time at Oracle- what you worked on, what
-          you learned, and what made it meaningful.
+          As a product management intern on the Java Platform Group, I worked at the intersection of AI, software engineering, and product strategy. I built internal tools leveraging Oracle&apos;s GenAI services related to training data, data collection, and model evaluations. Beyond my core role, I represented Stanford on Oracle&apos;s Student Advisory Board, spoke on a livestream celebrating Java&apos;s 30th anniversary, and created educational content for aspiring computer scientists.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {oracleMedia.map((item) => {
-          const inner = (
-            <div className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors">
-              {"image" in item && item.image ? (
-                <>
-                  <img
-                    src={item.image as string}
-                    alt={item.caption}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
-                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                <p className="text-white text-xs font-medium">{item.caption}</p>
+      {/* Hero row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {oracleHero.map((item) => (
+          <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-video rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block">
+            <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-14 h-14 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
             </div>
-          );
-          return "href" in item && item.href ? (
-            <a key={item.id} href={item.href as string} target="_blank" rel="noopener noreferrer">
-              {inner}
-            </a>
-          ) : (
-            <div key={item.id}>{inner}</div>
-          );
-        })}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+              <p className="text-white text-xs font-medium">{item.caption}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      {/* Supporting grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {oracleGrid.map((item) => (
+          <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 hover:border-teal-200 transition-colors block">
+            <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
+            {"noPlay" in item ? null : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-10 h-10 bg-black/50 rounded-full flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                  <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            )}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
+              <p className="text-white text-xs font-medium leading-snug">{item.caption}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );

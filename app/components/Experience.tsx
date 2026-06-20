@@ -16,7 +16,6 @@ const experiences = [
       "Prototyped 0→1 AI-powered tools for Oracle's Java Platform Group- integrating AI into developer workflows and cutting team AI-related costs by 40%. Built RAG-enabled agents and GenAI tooling that accelerated internal data collection by 25%. Represented Stanford on the Oracle Student Advisory Group and spoke on Java community panels to 15K+ viewers.",
     tags: ["Product Management", "AI", "RAG", "GenAI", "Java"],
     current: false,
-    note: "The exact work I did can't be shared publicly, but check out the panels I moderated and media coverage in the Oracle tab above.",
   },
   {
     company: "Max Planck Institute for Innovation & Competition",
