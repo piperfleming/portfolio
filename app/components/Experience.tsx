@@ -1,7 +1,7 @@
 const experiences = [
   {
     company: "Core VC",
-    role: "Software Engineering Intern",
+    role: "AI Tech Intern",
     period: "Summer 2026",
     description: "",
     tags: [],

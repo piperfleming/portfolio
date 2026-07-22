@@ -113,7 +113,7 @@ const taRoles = [
   {
     course: "BUSGEN 116: FREE SYSTEMS — Preserving Liberty in an Algorithmic Era",
     description:
-      "Served as Technical Coordinator for a Stanford GSB course exploring how AI is remaking how societies inform themselves, make decisions, and govern. Students built AI agents, stress-tested them for political bias, traded on live prediction markets, and ran governance simulations — each equipped with a Claude Code subscription and funded API key. Co-taught with Professor Andy Hall; ran weekly debugging drop-ins and supported students through vibe-coding prototypes on democracy, news bias, and decentralized rule-making.",
+      "Served as Technical TA for a Stanford GSB/Pathfinder course exploring how AI is remaking how societies inform themselves, make decisions, and govern. Students built AI agents, stress-tested them for political bias, traded on live prediction markets, and ran governance simulations — each equipped with a Claude Code subscription and funded API key. Taught by Professor Andy Hall; ran weekly debugging drop-ins and supported students through vibe-coding prototypes on democracy, news bias, and decentralized rule-making.",
     quarters: ["Spring 2026"],
     students: "~30 students",
     topics: ["AI Governance", "Political Bias", "Prediction Markets", "Agents", "Claude Code", "Democracy"],
@@ -314,10 +314,6 @@ function TeachingTab() {
         <h3 className="font-serif text-2xl font-bold text-stone-900 mb-3">
           Teaching
         </h3>
-        <p className="text-stone-500 leading-relaxed">
-          Teaching is one of the best ways to deepen your own understanding.
-          Here&apos;s where I&apos;ve had the chance to do that at Stanford.
-        </p>
       </div>
       <div className="space-y-6">
         {taRoles.map((role, i) => (
