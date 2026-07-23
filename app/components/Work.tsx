@@ -512,7 +512,7 @@ function TabButton({ label, active, onClick, dropdown, onDropdownSelect }: TabBu
 /* ── Main Work Component ─────────────────────────────────────────── */
 
 export default function Work() {
-  const [active, setActive] = useState<Tab>("cs");
+  const [active, setActive] = useState<Tab>("teaching");
   const [jumpToId, setJumpToId] = useState<string | null>(null);
 
   const handleDropdownSelect = (id: string) => {
