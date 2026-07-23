@@ -50,7 +50,7 @@ export default function About() {
                 I&apos;ve explored this from several angles: in big tech, working in
                 Product at{" "}
                 <span className="font-medium text-stone-800">Oracle</span>; in
-                the classroom, TAing a groundbreaking course at the{" "}
+                the classroom, TAing and designing a new course at the{" "}
                 <span className="font-medium text-stone-800">
                   Stanford Graduate School of Business
                 </span>{" "}

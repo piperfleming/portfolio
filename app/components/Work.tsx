@@ -99,11 +99,11 @@ const csProjects = [
 
 const oracleHero = [
   { id: "keynote", caption: "Moderating the student panel at the JavaOne Community Keynote — nearly 1,000 attendees.", href: "https://www.youtube.com/watch?v=skc-nIFS-hs", image: "/images/projects/oracle-panel-3.jpg" },
-  { id: "java30", caption: "Java Turns 30 — 6-hour live stream celebrating Java's evolution. I joined the 'Voices of the New Generation' segment alongside James Gosling, Brian Goetz, Mark Reinhold, and more.", href: "https://www.youtube.com/watch?v=LHHPbI7sYv8", image: "/images/projects/oracle-panel-1.jpg" },
+  { id: "java30", caption: "Java Turns 30 — 6-hour live stream celebrating Java's evolution. I joined the 'Voices of the New Generation' segment alongside James Gosling, Brian Goetz, Mark Reinhold, and more.", href: "https://www.youtube.com/watch?v=LHHPbI7sYv8", image: "/images/projects/oracle-panel-2.jpg" },
 ];
 
 const oracleGrid = [
-  { id: "hs", caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-2.jpg" },
+  { id: "hs", caption: "Oracle CS outreach series for high schoolers — this episode: how we use AI.", href: "https://www.youtube.com/watch?v=7ItFr4bUJSc", image: "/images/projects/oracle-panel-1.jpg" },
   { id: "imposter", caption: "Oracle interns get real about imposter syndrome, keeping up with fast-moving tech, and learning that growth matters more than perfection.", href: "https://www.youtube.com/watch?v=_N4j0Tn_unY", image: "https://img.youtube.com/vi/_N4j0Tn_unY/maxresdefault.jpg" },
   { id: "java-x", caption: "From exciting new features to community events—there's plenty to love about Java. See what community members had to say about why they love Java. #30YearsOfJava", href: "https://x.com/java/status/1958174777127977452", image: "/images/projects/oracle-java-x.jpg" },
   { id: "behind", caption: "Go behind the scenes with Oracle interns — what inspired them to pursue CS, what they worked on, and what surprised them most. Featuring Piper Fleming, Otmane Bachri, Nada Himdi, Andrew Schoenen, Kevin Villa, and Harinishree Sathu.", href: "https://www.youtube.com/watch?v=JlvyUSAWfdc", image: "https://img.youtube.com/vi/JlvyUSAWfdc/maxresdefault.jpg" },
@@ -522,9 +522,9 @@ export default function Work() {
   };
 
   const tabs: { id: Tab; label: string }[] = [
+    { id: "teaching", label: "Teaching" },
     { id: "cs", label: "CS & Beyond" },
     { id: "oracle", label: "Oracle" },
-    { id: "teaching", label: "Teaching" },
   ];
 
   return (
