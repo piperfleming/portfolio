@@ -1,20 +1,3 @@
-const workTags = [
-  "AI Systems",
-  "Machine Learning",
-  "NLP",
-  "Product",
-  "Human-AI Interaction",
-  "Python",
-  "Research",
-];
-
-const lifeTags = [
-  "🥏 National Silver Medalist",
-  "🚴 Santa Cruz mountains",
-  "📚 Supernatural reader",
-  "🎭 Proud Grinch",
-];
-
 export default function About() {
   return (
     <section id="about" className="py-28 bg-white">
@@ -65,17 +48,6 @@ export default function About() {
                 use.
               </p>
             </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {workTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded-full border border-teal-100"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
 
           {/* Photo */}
@@ -96,10 +68,10 @@ export default function About() {
           <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-6">
             Outside of work
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-stone-600 text-sm leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-600 text-sm leading-relaxed">
             <p>
               I&apos;m an avid athlete and dancer, and I&apos;ve won a{" "}
-              <span className="font-medium text-stone-800">silver medal on the national stage</span>{" "}
+              <span className="font-medium text-stone-800">silver medal on the collegiate national stage</span>{" "}
               with my ultimate frisbee team. On Saturday mornings, you can
               usually find me riding up and racing down the Santa Cruz
               mountains, drinking large milkshakes, getting bike grease all
@@ -114,16 +86,6 @@ export default function About() {
               thriving on momentum, challenge, and the people I get to grow
               alongside.
             </p>
-            <div className="flex flex-wrap gap-2 content-start">
-              {lifeTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-stone-50 text-stone-600 text-xs font-medium rounded-full border border-stone-200"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
