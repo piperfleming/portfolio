@@ -1,5 +1,6 @@
 import { unstable_cache } from "next/cache";
 import coreSnapshot from "../data/core-contributions.json";
+import localSnapshot from "../data/local-contributions.json";
 
 /**
  * Merged GitHub contribution data across all of my accounts.
@@ -9,6 +10,13 @@ import coreSnapshot from "../data/core-contributions.json";
  * account is deprovisioned after 2026-09-11 and its token stops working — the
  * snapshot is trimmed to the rolling window like any other source, so the Core
  * tail shrinks naturally instead of vanishing the day the token dies.
+ *
+ * A second snapshot (app/data/local-contributions.json) carries commits GitHub
+ * credits to nobody: work authored as piperf@stanford.edu inside repos the
+ * piperfleming account cannot access, plus one repo that isn't on GitHub at all.
+ * These are counted from local commit objects by scripts/snapshot-local.mjs.
+ * They are School-identity commits, so they report under the School label rather
+ * than adding a fourth source.
  */
 
 export const WINDOW_DAYS = 365;
@@ -21,6 +29,9 @@ const LIVE_ACCOUNTS: LiveAccount[] = [
 ];
 
 const SNAPSHOT_LABEL = "Core VC";
+
+/** Local-history commits are School-identity work, so they credit School. */
+const LOCAL_LABEL = LIVE_ACCOUNTS[0].label;
 
 export type Day = { date: string; count: number };
 
@@ -164,6 +175,20 @@ async function buildContributions(): Promise<ContributionData | null> {
     snapshotUsed += count;
   }
   if (snapshotUsed > 0) sources.push(SNAPSHOT_LABEL);
+
+  // Commits GitHub credits to nobody. Additive like every other source: these
+  // are absent from all three calendars, so there is nothing to double up with.
+  // If piperfleming is ever granted access to one of these repos AND GitHub
+  // starts counting its commits, drop that repo from UNCREDITED in
+  // scripts/snapshot-local.mjs and re-run, or those days will read double.
+  const localDays = localSnapshot.days as Record<string, number>;
+  let localUsed = 0;
+  for (const [date, count] of Object.entries(localDays)) {
+    if (date < iso(windowStart) || date > iso(end)) continue;
+    merged[date] = (merged[date] ?? 0) + count;
+    localUsed += count;
+  }
+  if (localUsed > 0 && !sources.includes(LOCAL_LABEL)) sources.push(LOCAL_LABEL);
 
   if (sources.length === 0) return null;
 
