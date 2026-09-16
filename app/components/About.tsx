@@ -37,7 +37,7 @@ export default function About() {
                 <span className="font-medium text-stone-800">
                   Stanford Graduate School of Business
                 </span>{" "}
-                focused on applied AI systems; and this summer, building and
+                focused on applied AI systems, and this summer, building and
                 evaluating AI tooling at{" "}
                 <span className="font-medium text-stone-800">Core VC</span>.
               </p>
