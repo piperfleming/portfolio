@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="min-h-screen flex items-center relative overflow-hidden">
       {/* Subtle background grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(#111827 1px, transparent 1px), linear-gradient(to right, #111827 1px, transparent 1px)",
