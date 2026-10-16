@@ -3,10 +3,10 @@ const experiences = [
     company: "Core VC",
     role: "AI Tech Intern",
     period: "Summer 2026",
-    description: "",
-    tags: [],
-    current: true,
-    note: "This work is confidential and can't be shared publicly.",
+    description:
+      "Built a deal-sourcing tool that filters external data, surfaces leads, updates the CRM, and initiates outreach based on partner feedback. Also built a pipeline that analyzes missed deals and recommends improvements- a retrospective analysis showed it would have surfaced 23% of the firm's missed opportunities, and it was featured in the firm's LP fundraising.",
+    tags: ["GCP", "AWS", "Supabase", "Vercel", "Slack API", "AI Agents"],
+    current: false,
   },
   {
     company: "Oracle",
@@ -152,9 +152,6 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
-                  {"note" in exp && exp.note && (
-                    <p className="mt-4 text-xs text-stone-400 italic">{exp.note as string}</p>
-                  )}
                   {"paper" in exp && exp.paper && (() => {
                     const p = exp.paper as Paper;
                     return (

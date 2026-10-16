@@ -31,6 +31,7 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-stone-500 font-light leading-relaxed max-w-2xl mb-12">
             I build things at the intersection of{" "}
             <span className="text-stone-800 font-normal">technology</span>,{" "}
+            <span className="text-stone-800 font-normal">education</span>,{" "}
             <span className="text-stone-800 font-normal">finance</span>, and{" "}
             <span className="text-stone-800 font-normal">AI</span>- from fintech
             intelligence tools to research on how language models shape human

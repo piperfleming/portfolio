@@ -111,9 +111,21 @@ const oracleGrid = [
 
 const taRoles = [
   {
+    course: "CS 193T: Thinking with AI",
+    description:
+      "Head TA and co-creator of Stanford's first AI tools course, launched at university leadership's request and taught with Senior Lecturer Cynthia Bailey. I designed the course structure and assignments, taught 150+ students, and led a team of 12 TAs in its inaugural quarter.",
+    quarters: ["Autumn 2026"],
+    students: "150+ students",
+    topics: ["AI Tools", "Course Design", "AI Literacy", "TA Leadership"],
+    demosHeading: "Class Website",
+    demos: [
+      { week: 0, title: "CS 193T: Thinking with AI", description: "The course hub for syllabus, lectures, assignments, and tutorials- open for self-study to anyone with a Stanford email.", image: "/images/projects/cs193t-site.png", href: "https://cs193t.stanford.edu/" },
+    ],
+  },
+  {
     course: "BUSGEN 116: FREE SYSTEMS — Preserving Liberty in an Algorithmic Era",
     description:
-      "Served as Technical TA for a Stanford GSB/Pathfinder course exploring how AI is remaking how societies inform themselves, make decisions, and govern. Students built AI agents, stress-tested them for political bias, traded on live prediction markets, and ran governance simulations — each equipped with a Claude Code subscription and funded API key. Taught by Professor Andy Hall; ran weekly debugging drop-ins and supported students through vibe-coding prototypes on democracy, news bias, and decentralized rule-making.",
+      "Head Technical TA and co-creator of a Stanford GSB/Pathfinder course exploring how AI is remaking how societies inform themselves, make decisions, and govern. Students built AI agents, stress-tested them for political bias, traded on live prediction markets, and ran governance simulations — each equipped with a Claude Code subscription and funded API key. Taught by Professor Andy Hall; I pioneered coding-agent-based instruction, introducing Claude Code ahead of Stanford's broader rollout, designed new interactive simulations and activities each week, and ran weekly debugging drop-ins for students vibe-coding prototypes on democracy, news bias, and decentralized rule-making.",
     quarters: ["Spring 2026"],
     students: "~30 students",
     topics: ["AI Governance", "Political Bias", "Prediction Markets", "Agents", "Claude Code", "Democracy"],
@@ -344,7 +356,7 @@ function TeachingTab() {
             </div>
             {"demos" in role && Array.isArray(role.demos) && role.demos.length > 0 && (
               <div className="mt-6">
-                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">Things I built</p>
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{("demosHeading" in role && role.demosHeading) || "Things I built"}</p>
                 <div className="space-y-5">
                   {(role.demos as { week: number; label?: string; src?: string; image?: string; href?: string; title?: string; description?: string }[]).map((d) => (
                     <div key={d.week} className="flex flex-col md:flex-row gap-5 items-start">
@@ -358,7 +370,9 @@ function TeachingTab() {
                         ) : null}
                       </div>
                       <div className="flex-1 min-w-0 pt-1">
-                        <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-1">{d.label ?? `Week ${d.week}`}</p>
+                        {(d.label || d.week > 0) && (
+                          <p className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-1">{d.label ?? `Week ${d.week}`}</p>
+                        )}
                         {d.title && <p className="font-semibold text-stone-900 mb-2">{d.title}</p>}
                         {d.description && <p className="text-stone-500 text-sm leading-relaxed">{d.description}</p>}
                         {d.href && (

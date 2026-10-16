@@ -16,8 +16,8 @@ export default function About() {
 
             <div className="space-y-4 text-stone-600 leading-relaxed">
               <p>
-                Hi, I&apos;m Piper! I&apos;m a senior at Stanford studying computer
-                science, and I&apos;ll be returning in the fall to pursue my
+                Hi, I&apos;m Piper! I graduated from Stanford with my BS in
+                computer science, and I&apos;m now back pursuing my
                 master&apos;s in AI. Most of my work revolves around one core
                 question:{" "}
                 <span className="font-medium text-stone-800">
@@ -33,11 +33,13 @@ export default function About() {
                 I&apos;ve explored this from several angles: in big tech, working in
                 Product at{" "}
                 <span className="font-medium text-stone-800">Oracle</span>, in
-                the classroom, TAing and designing a new course at the{" "}
+                the classroom, co-creating and leading new AI courses at{" "}
+                <span className="font-medium text-stone-800">Stanford</span>{" "}
+                and the{" "}
                 <span className="font-medium text-stone-800">
-                  Stanford Graduate School of Business
-                </span>{" "}
-                focused on applied AI systems, and this summer, building and
+                  Graduate School of Business
+                </span>
+                , and this past summer, building and
                 evaluating AI tooling at{" "}
                 <span className="font-medium text-stone-800">Core VC</span>.
               </p>
@@ -70,9 +72,9 @@ export default function About() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-600 text-sm leading-relaxed">
             <p>
-              I&apos;m an avid athlete and dancer, and I&apos;ve won a{" "}
+              I&apos;m an avid athlete and dancer, having won a{" "}
               <span className="font-medium text-stone-800">silver medal on the collegiate national stage</span>{" "}
-              with my ultimate frisbee team. On Saturday mornings, you can
+              with my ultimate frisbee team and been chosen to perform at the 49th Stanford Viennese Ball. On Saturday mornings, you can
               usually find me riding up and racing down the Santa Cruz
               mountains, drinking large milkshakes, getting bike grease all
               over me, and eating pastries (in that order).

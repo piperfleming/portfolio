@@ -40,7 +40,10 @@ classes, ids, hrefs — and is more reliable than replicating logic in a throwaw
 
 Do not try to verify in a browser: `npm run dev` binds port 3000 but every request times out
 (`next/font/google` can't reach the network under the sandbox), and the Chrome extension refuses
-`localhost` outright. For anything that genuinely needs a click, ask Piper.
+`localhost` outright. For anything that genuinely needs a click, ask Piper. To give Piper a
+localhost to look at, `npm run build && npm run start` (sandbox disabled) works — it doesn't
+hot-reload, so rebuild and restart after each edit, and stop it by port
+(`kill $(lsof -tiTCP:3000 -sTCP:LISTEN)`), not `pkill`.
 
 ## Architecture boundaries
 
@@ -62,3 +65,6 @@ Do not try to verify in a browser: `npm run dev` binds port 3000 but every reque
   section. This already broke the whole hero once.
 - **The Oracle images are deliberately swapped** relative to their captions. Looks like a bug;
   isn't. Don't "fix" it without asking.
+- **The repo lives in iCloud-synced `~/Documents` and iCloud evicts files.** Builds failing with
+  `Operation timed out (os error 60)` or git with `mmap failed` mean cloud-only files — check
+  `find . -flags +dataless | wc -l` and ask Piper to sync, rather than retrying.
